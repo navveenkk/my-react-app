@@ -1,33 +1,29 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
-import { Col } from 'react-bootstrap/Col';
-import { Row } from 'react-bootstrap/Row';
-import { Button } from 'react-bootstrap/Button';
-import { Card } from 'react-bootstrap/Card';
+import { Row, Col } from 'react-bootstrap';
+import ProductItem from '../components/ProductItem.jsx';
+import siteData from '../data.js';
 
-function ProductGrid() {
-    return (
-        <>
-        <h2>Our Products</h2>
-        <Row className="d-flex">
-        <Col>
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-        </Card>
-        </Col>
-        <Col>B</Col>
-        <Col>C</Col>
+function ProductGrid({ sliceCount, products }) {
+    let productsToDisplay;
+    if (products) {
+        productsToDisplay = products;
+    } else {
+        const shuffledProducts = [...siteData.products].sort(() => Math.random() - 0.5);
+        productsToDisplay = sliceCount ? shuffledProducts.slice(0, sliceCount) : shuffledProducts;
+    }
+
+   return (
+        <Row className="my-5"> 
+            <h1>Our Products</h1>
+
+            {productsToDisplay.map(item => (
+                // Adjusted column sizes for better responsiveness
+                <Col key={item.id} xs={12} sm={6} md={4} lg={3} className="px-1 gy-2"> {/* Adjusted column sizes for better responsiveness */}
+                    <ProductItem product={item} />
+                </Col>
+            ))}
         </Row>
-        </>
     );
 }
 

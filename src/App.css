@@ -1,8 +1,44 @@
+:root {
+  --primary-color--:#0d6efd;
+}
+
+/* Custom Scrollbars */
+/* width */
+::-webkit-scrollbar {
+  width: 0.1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: var(--primary-color--); */
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* background: #ffffff90; */
+  background: transparent;
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  /* background: #ffffff; */
+  background: transparent;
+}
+
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
+  width: -webkit-fill-available;
+  overflow-x: hidden;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* background-image: url('/home/user/my-react-app-js/src/assets/Gemini_Generated_Image_hzkff3hzkff3hzkf.jpg'); */
+  /* background-position: left center; */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  background: linear-gradient(var(--primary-color--), #4dc0b550 );
 }
 
 .logo {
@@ -33,6 +69,10 @@
   }
 }
 
+.icon-large {
+  font-size: 1.5rem; /* Adjust the size as needed */
+}
+
 .card {
   padding: 2em;
 }
@@ -40,3 +80,125 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Glassy effect */
+.glassy {
+  background-color: rgba(255, 255, 255, 0.2) !important; 
+  backdrop-filter: blur(10px) !important; 
+  border-radius: 15px !Important; 
+  /* border: 1px solid rgba(255, 255, 255, 0.3);  */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  padding: 20px !important;
+}
+
+.header-dropdown a {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: var(--primary-color--) !important;
+} 
+
+.dropdown-menu a:hover {
+  background-color: #0b5ed7 !important;
+}
+
+/* Carousel Custom CSS */
+.carousel-indicators {
+  bottom: unset !important;
+  top: 0;
+  margin-bottom: unset !important;
+  margin-top: 1rem;
+}
+.carousel-indicators [data-bs-target] {
+  background-color: var(--primary-color--) !important;
+  height: 5px !important;
+  border: 3px solid #fff !important;
+}
+.carousel-control-prev {
+  bottom: unset !important;
+  top: 3rem !important;
+  background-color: #0d6efd !important;
+  width: fit-content !important;
+  padding: 1rem !important;
+  border-radius: 50% !important;
+  left: 10% !important;
+  filter: unset !important;
+}
+.carousel-control-next {
+  top: unset !important;
+  bottom: 3rem !important;
+  background-color: #0d6efd !important;
+  width: fit-content !important;
+  padding: 1rem !important;
+  border-radius: 50% !important;
+  right: 10% !important;
+  filter: unset !important;
+}
+
+/* Badge */
+.cta-badge {
+  /* Use a linear gradient for a modern background */
+  background-image: linear-gradient(135deg, #6a11cb 0%, var(--primary-color--) 100%);
+  color: #ffffff; /* Set a contrasting color for the text */
+  padding: 1.5rem 2rem; /* Increase padding for more space */
+  border-radius: 1rem; /* Adjust border-radius for a softer look */
+  /* Add a subtle box shadow for depth */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+  /* Use flexbox properties for perfect alignment */
+  display: flex;
+  justify-content: space-between; /* Space out the text and button */
+  align-items: center;
+  gap: 1.5rem; /* Add a gap between the text and button */
+}
+
+.cta-badge span {
+  font-size: 1.25rem; /* Make the text slightly larger and more prominent */
+  font-weight: 600; /* Use a semi-bold font weight */
+}
+
+/* Update the button to match the banner's style */
+.cta-badge .btn-primary {
+  background-color: #ffffff; /* White background for the button */
+  color: #2575fc; /* Text color that matches the gradient */
+  border: none;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-badge .btn-primary:hover {
+  background-color: var(--primary-color--);
+  color: #fff;
+  transform: translateY(-2px); /* Add a subtle hover effect */
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  /* min-height: 500px; Added to prevent content from "jerking" on pagination */
+}
+
+/* ul.pagination {
+  list-style: none;
+} */
+
+ul.pagination > li:only-child {
+  display: none !important;
+}
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
