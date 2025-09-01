@@ -15,7 +15,7 @@ const ContactForm = () => {
     <Container className="py-5">
       <Row className="justify-content-center">
         <Col xs={12} md={8} lg={6}>
-          <Card className="shadow-lg p-4 glassy">
+          <Card className="shadow-lg p-0 p-lg-4 glassy">
             <Card.Body>
               <h2 className="text-center text-white mb-4">Get in Touch</h2>
               <p className="text-center text-muted mb-4">

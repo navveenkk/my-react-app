@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 const CartPage = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 3;
 
   useEffect(() => {
     const totalPages = Math.ceil(cartItems.length / itemsPerPage);
@@ -42,7 +42,7 @@ const CartPage = () => {
     <div className="p-6" style={{minHeight: '60vh'}}>
       {cartItems.length === 0 ? (
         <div className="mt-5">
-        <i class="bi bi-bag-x icon-large text-white"></i>
+        <i className="bi bi-bag-x icon-large text-white"></i>
         <p className="fs-2 text-white">Your cart is empty.</p>
         </div>
       ) : (

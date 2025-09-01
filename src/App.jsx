@@ -15,7 +15,7 @@ import ScrollToTop from '/home/user/my-react-app-js/src/components/ScrollToTop.j
 function App() {
   return (
     <Router>
-      <Container fluid className="d-flex flex-column justify-content-between">
+      <Container fluid className="d-flex flex-column justify-content-between p-0">
         <HeaderFunction />
  <ScrollToTop />
         <Routes>

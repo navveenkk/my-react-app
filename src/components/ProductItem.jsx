@@ -20,7 +20,7 @@ const ProductItem = ({ product, isCart, itemQuantity, onRemove }) => {
           <>
             {itemQuantity !== undefined && (
               <CardText>
-                <h3>Quantity: <Badge bg="success">{itemQuantity}</Badge></h3>
+                <p>Quantity: <Badge bg="success">{itemQuantity}</Badge></p>
               </CardText>
             )}
             {onRemove && (
