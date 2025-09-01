@@ -7,7 +7,7 @@
 
 ## Technologies
 
--    **React:**
--    **Bootstrap:**
+-    **React**
+-    **Bootstrap**
 
 

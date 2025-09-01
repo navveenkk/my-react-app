@@ -40,7 +40,6 @@ const HeaderSlide = () => {
             <div className="row d-flex align-items-center justify-content-center">
               <Col xs={12} md={6} lg={8} className="mb-3 mb-md-0">
                 <img className="d-block w-100 h-auto img-fluid rounded-lg shadow-lg" src={item.image} alt={item.alt}
-                // Fallback for image loading errors
                 onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/800x600/CCCCCC/333333?text=Image+Not+Found'; }} />
               </Col>
               <Col xs={12} md={6} lg={4} className="text-center text-md-start d-flex align-items-center">

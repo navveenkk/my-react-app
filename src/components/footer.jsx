@@ -8,12 +8,10 @@ function FooterFunction() {
         <footer className="glassy text-dark py-4">
             <Container>
                 <Row className="align-items-center">
-                    {/* Copyright on the left */}
                     <Col lg={6} className="text-center text-lg-start mb-3 mb-lg-0">
                         <small>&copy; {new Date().getFullYear()} Nave's Store. All rights reserved.</small>
                     </Col>
                     
-                    {/* Navigation links on the right */}
                     <Col lg={6}>
                         <Nav className="justify-content-center justify-content-lg-end">
                             {siteData.navItems.map((item, index) => (

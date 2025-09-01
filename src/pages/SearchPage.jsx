@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import CardText from 'react-bootstrap/CardText';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import ProductItem from '../components/ProductItem.jsx';
+// import Card from 'react-bootstrap/Card';
+// import CardText from 'react-bootstrap/CardText';
+// import Button from 'react-bootstrap/Button';
+// import Col from 'react-bootstrap/Col';
+// import ProductItem from '../components/ProductItem.jsx';
 import siteData from '../data';
 import Pagination from '../components/Pagination.jsx';
 import ProductGrid from '../components/product-grid.jsx';
-import { useContext } from 'react';
+// import { useContext } from 'react';
 
   const SearchPage = () => {
     const [searchParams] = useSearchParams();
@@ -18,7 +18,7 @@ import { useContext } from 'react';
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 3;
   
-    // Filter mock products based on the search query and category
+    // Filter products based on the search query and category
     useEffect(() => {
         setCurrentPage(1);
       const filteredResults = siteData.products.filter(product => {
@@ -32,7 +32,7 @@ import { useContext } from 'react';
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = results.slice(indexOfFirstItem, indexOfLastItem);
-    const totalPages = Math.ceil(results.length / itemsPerPage);
+    // const totalPages = Math.ceil(results.length / itemsPerPage);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 

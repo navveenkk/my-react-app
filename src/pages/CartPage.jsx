@@ -26,7 +26,7 @@ const CartPage = () => {
     return { ...product, quantity: cartItem.quantity, removeFromCart };
   });
 
-  // Calculate items for the current page
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentCartItems = enhancedCartItems.slice(indexOfFirstItem, indexOfLastItem);

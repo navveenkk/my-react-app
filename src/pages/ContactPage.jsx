@@ -1,4 +1,4 @@
-import ContactForm from '/home/user/my-react-app-js/src/components/ContactForm';
+import ContactForm from '../components/ContactForm';
 
 export default function ContactPage () {
     return (
