@@ -32,7 +32,7 @@
   width: -webkit-fill-available;
   overflow-x: hidden;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
   /* background-image: url('/home/user/my-react-app-js/src/assets/Gemini_Generated_Image_hzkff3hzkff3hzkf.jpg'); */
   /* background-position: left center; */
@@ -88,7 +88,7 @@
   border-radius: 15px !Important; 
   /* border: 1px solid rgba(255, 255, 255, 0.3);  */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  padding: 20px !important;
+  padding: 20px;
 }
 
 .header-dropdown a {

@@ -17,16 +17,16 @@ const ContactForm = () => {
         <Col xs={12} md={8} lg={6}>
           <Card className="shadow-lg p-4 glassy">
             <Card.Body>
-              <h2 className="text-center mb-4">Get in Touch</h2>
+              <h2 className="text-center text-white mb-4">Get in Touch</h2>
               <p className="text-center text-muted mb-4">
                 We'd love to hear from you. Please fill out the form below.
               </p>
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
+                  {/* <Form.Label>Email address</Form.Label> */}
                   <Form.Control
                     type="email"
-                    placeholder="name@example.com"
+                    placeholder="Your E-mail"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -34,11 +34,11 @@ const ContactForm = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-4" controlId="formBasicMessage">
-                  <Form.Label>Message</Form.Label>
+                  {/* <Form.Label>Message</Form.Label> */}
                   <Form.Control
                     as="textarea"
                     rows={5}
-                    placeholder="Enter your message here..."
+                    placeholder="Your message here..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     required

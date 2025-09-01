@@ -36,8 +36,8 @@ const handleSearch = (event) => {
 
   return (
     <>
-      {['sm'].map((expand) => (
-        <Navbar key={expand} expand={expand} sticky="bottom" className="glassy mb-3">
+      {['md'].map((expand) => (
+        <Navbar key={expand} expand={expand} className="glassy mb-3">
           <Container fluid >
             <Navbar.Brand className="text-white" ><Nav.Link as={NavLink} to="/" className="text-white">
             Nave's Store
@@ -57,32 +57,19 @@ const handleSearch = (event) => {
               <Offcanvas.Body>
                 <Nav className="justify-content-end align-items-center flex-grow-1 pe-3 ">
                   {siteData.navItems.map((item, index) => (
-                    <Nav.Link as={NavLink} to={item.url} key={index} className="text-white">
+                    <Nav.Link as={NavLink} to={item.url} key={index} className="text-white fs-5">
                     {item.label}
                   </Nav.Link>
                   ))}
                   <Nav.Link as={NavLink} to="/cart" className="text-white">
                   <span className="position-relative">
                         <i className="bi bi-cart3 icon-large"></i>
- <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{cartItems.length}</span></span> </Nav.Link>
+ <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{cartItems.length}</span></span> 
+ </Nav.Link>
                     <Nav.Link as={NavLink} to="/login" className="text-white">
                         <i className="bi bi-person-circle icon-large"></i>
 
                   </Nav.Link>
-                  {/* <NavDropdown
-                    className="header-dropdown"
-                    title="Dropdown"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown> */}
                 </Nav>
                 <Form className="d-flex align-items-center" onSubmit={handleSearch}>
                   <Form.Control

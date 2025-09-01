@@ -14,13 +14,15 @@ function ProductGrid({ sliceCount, products }) {
     }
 
    return (
-        <Row className="my-5"> 
-            <h1>Our Products</h1>
+        <Row className="mb-5 px-2"> 
+            {/* <h1 className="text-white">Our Products</h1> */}
 
             {productsToDisplay.map(item => (
                 // Adjusted column sizes for better responsiveness
-                <Col key={item.id} xs={12} sm={6} md={4} lg={3} className="px-1 gy-2"> {/* Adjusted column sizes for better responsiveness */}
-                    <ProductItem product={item} />
+                <Col key={item.id} xs={12} sm={6} md={4} lg={4} className="px-1 gy-2"> {/* Adjusted column sizes for better responsiveness */}
+                    <ProductItem
+                        product={item}
+ />
                 </Col>
             ))}
         </Row>

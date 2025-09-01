@@ -1,54 +1,64 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '/home/user/my-react-app-js/src/context/CartContext';
 import Pagination from '../components/Pagination.jsx';
-
+import siteData from '../data'; 
+import CartProductGrid from '/home/user/my-react-app-js/src/components/CartProductGrid.jsx';
+import Button from 'react-bootstrap/Button';
+ 
 const CartPage = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
-  
+  const itemsPerPage = 4;
+
+  useEffect(() => {
+    const totalPages = Math.ceil(cartItems.length / itemsPerPage);
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(totalPages);
+    }
+  }, [cartItems, currentPage, itemsPerPage]); // Added itemsPerPage to dependencies
+
+  const cartProducts = siteData.products.filter(product =>
+    cartItems.some(item => item.id === product.id)
+  );
+
+  const enhancedCartItems = cartProducts.map(product => {
+    const cartItem = cartItems.find(item => item.id === product.id);
+    return { ...product, quantity: cartItem.quantity, removeFromCart };
+  });
+
+  // Calculate items for the current page
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = cartItems.slice(indexOfFirstItem, indexOfLastItem);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const totalItems = cartItems.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const currentCartItems = enhancedCartItems.slice(indexOfFirstItem, indexOfLastItem);
 
+  const totalAmount = enhancedCartItems.reduce((sum, item) => {
+    const product = siteData.products.find(p => p.id === item.id);
+    return sum + (product ? product.price * item.quantity : 0);
+  }, 0);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const totalItems = enhancedCartItems.length; // This should be calculated before using it in Pagination
   return (
-    <div className="container p-5">
-      <h1>Shopping Cart</h1>
+    <div className="p-6" style={{minHeight: '60vh'}}>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <div className="mt-5">
+        <i class="bi bi-bag-x icon-large text-white"></i>
+        <p className="fs-2 text-white">Your cart is empty.</p>
+        </div>
       ) : (
         <>
-          <div className="cart-items-container">
-            {currentItems.map(item => (
-              <div key={item.id} className="cart-item p-3 mb-3 border rounded d-flex justify-content-between align-items-center">
-                <div className="d-flex align-items-center">
-                  {item.imageUrl && (
-                    <img src={item.imageUrl} alt={item.name} style={{ width: '50px', height: '50px', marginRight: '15px', objectFit: 'cover' }} className="rounded" />
-                  )}
-                  <div className="flex-grow-1">
-                    <h5>{item.name}</h5>
-                    <p>₹{item.price} x {item.quantity}</p>
-                  </div>
-                </div>
-                <button className="btn btn-danger btn-sm" onClick={() => removeFromCart(item.id)}>Remove</button>
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination Controls */}
- <Pagination
- itemsPerPage={itemsPerPage}
- totalItems={totalItems}
- currentPage={currentPage}
- paginate={paginate}
- />
+        <CartProductGrid key={currentPage} items={currentCartItems} />
+        {cartItems.length > 0 && (
+          <Pagination itemsPerPage={itemsPerPage} totalItems={totalItems}currentPage={currentPage} paginate={paginate} />
+        )}
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="">Total: ₹ {totalAmount.toFixed(2)}</h2>
+          <Button variant="primary" size="lg">Check Out</Button>
+        </div>
         </>
       )}
-    </div>
-  );
+ </div>
+);
 };
 
 export default CartPage;

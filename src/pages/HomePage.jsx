@@ -7,7 +7,8 @@ function HomeContent() {
     return(
         <>
             <HeaderSlide />
-            <ProductGrid sliceCount={4} />
+            <h2 className="text-white mt-3">Our Products</h2>
+            <ProductGrid sliceCount={3} />
             <CtaBanner />
         </>
     )

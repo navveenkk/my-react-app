@@ -16,7 +16,7 @@ import { useContext } from 'react';
     const category = searchParams.get('category');
     const [results, setResults] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 4;
+    const itemsPerPage = 3;
   
     // Filter mock products based on the search query and category
     useEffect(() => {
@@ -37,7 +37,7 @@ import { useContext } from 'react';
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-      <div>
+      <div className="container-fluid">
         {/* <h1 className="mb-4">
           {query || category ? `Search Results for "${query}" in "${category || 'All Categories'}"` : 'Please enter a search query or select a category.'}
         </h1> */}

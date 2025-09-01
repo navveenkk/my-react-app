@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'react-bootstrap';
+import { Card, CardImg, CardBody, CardTitle, CardText, Button, Badge } from 'react-bootstrap';
 
 import AddToCartButton from '../components/AddToCartButton';
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, isCart, itemQuantity, onRemove }) => {
   return (
     <Card className="p-0 rounded-5">
       <Card.Img className="img-fluid rounded-5" variant="top" src={product.imageUrl} alt={product.name} />
@@ -15,7 +15,19 @@ const ProductItem = ({ product }) => {
         <CardText>
           Price: ₹{product.price.toFixed(2)}
         </CardText>
-        <AddToCartButton product={product} />
+
+        {isCart ? (
+          <>
+            {itemQuantity !== undefined && (
+              <CardText>
+                <h3>Quantity: <Badge bg="success">{itemQuantity}</Badge></h3>
+              </CardText>
+            )}
+            {onRemove && (
+              <Button variant="danger" onClick={() => onRemove(product.id)}>Remove</Button>
+            )}
+          </>
+        ) : (<AddToCartButton product={product} />)}
       </CardBody>
     </Card>
   );

@@ -10,12 +10,14 @@ import ShopPage from './pages/ShopPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import SearchPage from './pages/SearchPage.jsx';
 import CartPage from './pages/CartPage.jsx';
+import ScrollToTop from '/home/user/my-react-app-js/src/components/ScrollToTop.jsx';
 
 function App() {
   return (
     <Router>
       <Container fluid className="d-flex flex-column justify-content-between">
         <HeaderFunction />
+ <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/shop" element={<ShopPage />} />
